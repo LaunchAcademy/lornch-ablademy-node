@@ -10,9 +10,6 @@ clinicsRouter.get("/:id", async (req, res) => {
 
   try {
     const clinic = await Clinic.query().findById(id)
-
-    // your code here
-
     return res.status(200).json({ clinic })
   }
   catch(err) {
