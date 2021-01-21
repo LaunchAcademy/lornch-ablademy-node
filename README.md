@@ -33,8 +33,11 @@ Entity Criteria
 ```
 
 ## Features
-* clinic list page (migration and model completed, just need to add `relationMappings`)
+*For simplicity, there is no index page for this app*
+
 * clinic show page (show information is already present, we need to add all of the questions for a clinic both frontend and backend)
+* Add questions for clinic on clinic show 
+* Add new question for clinic
 
 ## Order of Operations
 - Ensure ER diagram
