@@ -10,7 +10,7 @@ class Seeder {
     await ClinicSeeder.seed()
 
     console.log("seeding questions...")
-    await QuestionSeeder.seed()
+    // await QuestionSeeder.seed()
 
     console.log("Done!")
     await connection.destroy()

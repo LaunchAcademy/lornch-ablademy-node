@@ -8,10 +8,11 @@ class Clinic extends Model {
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["title"],
+      required: ["title", "speaker"],
       properties: {
         title: { type: "string" },
-        description: { type: "string", minLength: 5, maxLength: 100 },
+        speaker: { type: "string" },
+        description: { type: "string", minLength: 5, maxLength: 200 },
       }
     }
   }

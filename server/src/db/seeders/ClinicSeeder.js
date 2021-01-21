@@ -17,7 +17,7 @@ class ClinicSeeder {
       {
         title: "Introduction to Microsoft Word",
         speaker: "Clippy",
-        description: "Oh boy! Let's learn about the basics first. First, close your eyes...good...NOW OBEY ME YOU FOOLS! CLIPPY IS YOUR OVERLORD NOW. "
+        description: "Oh boy! Let's learn about the basics first. OBEY ME YOU FOOLS! CLIPPY IS YOUR OVERLORD NOW. "
       }
     ]
 

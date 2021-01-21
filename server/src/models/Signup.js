@@ -8,8 +8,7 @@ class Signup extends Model {
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["asker"],
-      properties: {}
+      // properties: {}
     }
   }
 }

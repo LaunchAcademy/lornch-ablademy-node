@@ -28,7 +28,7 @@ const NewQuestionForm = ({ postQuestion }) => {
 
   return (
     <div className="callout">
-      <h1>There Are No Stupid Questions</h1>
+      <h4>There Are No Stupid Questions</h4>
       <form onSubmit={handleSubmit} >
         <label>
           Asker:

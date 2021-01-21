@@ -40,6 +40,7 @@ Entity Criteria
 - Ensure ER diagram
 - generate models and migrations
 - add relationMappings 
-- navigate to pages by feature, and ensure they work as expected, adding code to routers accordingly 
-- dig a smidge more deeply into persisting
+- Ensure that questions for a given clinic appear on the page
+- Ensure that adding a new question for a clinic adds that to the page
+- Create our own nested router and persist!
 - open time for Q&A

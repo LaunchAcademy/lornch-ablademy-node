@@ -25,6 +25,7 @@ const ClinicShow = props => {
         throw(error)
       }
       const body = await response.json()
+      debugger
       setClinic(body.clinic)
     } catch(err) {
       console.error(`Error in fetch: ${err.message}`)
@@ -64,26 +65,34 @@ const ClinicShow = props => {
     }
   }
 
-  const questionTiles = clinic.questions.map(questionObject => {
-    return(
-      <QuestionTile
-        key={questionObject.id}
-        {...questionObject}
-      />
-    )
-  })
+  let questionTiles
+  if (clinic.questions) {
+    questionTiles = clinic.questions.map(questionObject => {
+      return(
+        <QuestionTile
+          key={questionObject.id}
+          {...questionObject}
+        />
+      )
+    })
+  }
 
   return(
     <div>
-      <h1>{clinic.name}</h1>
-      <h4>Clinic Questions:</h4>
-      {questionTiles}
+      <div className="callout">
+        <h1>{clinic.title}</h1>
+        <h5>Presented by: {clinic.speaker}</h5>
+        <p>{clinic.description}</p>
+      </div>
+
       <div>
         <ErrorList errors={errors} />
         <NewQuestionForm
           postQuestion={postQuestion}
         />
       </div>
+      <h4>Clinic Questions:</h4>
+      {questionTiles}
     </div>
   )
 }

@@ -8,7 +8,7 @@ class Question extends Model {
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["asker"],
+      required: ["asker", "body"],
       properties: {
         asker: { type: "string" },
         body: { type: "string", minLength: 5, maxLength: 255 },
