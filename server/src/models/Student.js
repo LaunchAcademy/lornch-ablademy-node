@@ -14,6 +14,24 @@ class Student extends Model {
       }
     }
   }
+
+  static get relationMappings(){
+    const Clinic = require("./Clinic")
+    return {
+      clinics: {
+        relation: Model.ManyToManyRelation,
+        modelClass: Clinic,
+        join: {
+          from: "students.id",
+          through: {
+            from: "signups.studentId",
+            to: "signups.clinicId",
+          },
+          to: "clinics.id"
+        }
+      }
+    }
+  }
 }
 
 module.exports = Student
