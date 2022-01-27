@@ -25,7 +25,7 @@ const ClinicShow = props => {
         throw(error)
       }
       const body = await response.json()
-      debugger
+      // debugger
       setClinic(body.clinic)
     } catch(err) {
       console.error(`Error in fetch: ${err.message}`)

@@ -16,6 +16,21 @@ class Clinic extends Model {
       }
     }
   }
+
+  static get relationMappings() {
+    const Question = require("./Question")
+
+    return {
+      questions: {
+        relation: Model.HasManyRelation,
+        modelClass: Question,
+        join: {
+          from: "clinics.id",
+          to: "questions.clinicId"
+        }
+      }
+    }
+  }
 }
 
 module.exports = Clinic

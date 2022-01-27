@@ -9,7 +9,7 @@ class Seeder {
     console.log("seeding clinics...")
     await ClinicSeeder.seed()
 
-    console.log("seeding questions...")
+    // console.log("seeding questions...")
     // await QuestionSeeder.seed()
 
     console.log("Done!")

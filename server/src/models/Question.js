@@ -16,6 +16,21 @@ class Question extends Model {
       }
     }
   }
+
+  static get relationMappings() {
+    const Clinic = require("./Clinic")
+    
+    return {
+      clinic: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: Clinic,
+        join: {
+          from : "questions.clinicId",
+          to: "clinics.id"
+        }
+      }
+    }
+  }
 }
 
 module.exports = Question
