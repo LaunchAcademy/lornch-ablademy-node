@@ -12,8 +12,23 @@ class Question extends Model {
       properties: {
         asker: { type: "string" },
         body: { type: "string", minLength: 5, maxLength: 255 },
-        clinicId: { type: ["integer", "string"] }
-      }
+        clinicId: { type: ["integer", "string"] },
+      },
+    }
+  }
+
+  static get relationMappings() {
+    const Clinic = require("./Clinic")
+
+    return {
+      clinic: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: Clinic,
+        join: {
+          from: "questions.clinicId",
+          to: "clinics.id",
+        },
+      },
     }
   }
 }

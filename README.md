@@ -1,6 +1,6 @@
-
 # Welcome to Lornch Ablademy!
-*Definitely not a ripoff Launch Academy, no sir-ee!
+
+_Definitely not a ripoff Launch Academy, no sir-ee!_
 
 ### Installation
 
@@ -10,8 +10,9 @@ yarn install
 yarn run dev
 ```
 
-Entity Criteria 
-```
+Entity Criteria
+
+```no-highlight
 #### Clinics
 
 * Must have a title
@@ -33,17 +34,21 @@ Entity Criteria
 ```
 
 ## Features
-*For simplicity, there is no index page for this app*
 
-* clinic show page (show information is already present, we need to add all of the questions for a clinic both frontend and backend)
-* Add questions for clinic on clinic show 
-* Add new question for clinic
+_For simplicity, there is no index page for this app_
+
+- clinic show page (show information is already present, we need to add all of the questions for a clinic, both front-end and back-end)
+- Add questions for a clinic on the clinic show
+- Add a new question for a clinic
 
 ## Order of Operations
-- Ensure ER diagram
-- generate models and migrations
-- add relationMappings 
+
+- Create an ER diagram
+- Generate models and migrations
+- Add `relationMappings`
+- Test creating objects and calling on associations in the `yarn console`
 - Ensure that questions for a given clinic appear on the page
 - Ensure that adding a new question for a clinic adds that to the page
 - Create our own nested router and persist!
-- open time for Q&A
+- Serializer
+- Open time for Q&A

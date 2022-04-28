@@ -5,12 +5,12 @@ import QuestionTile from "./QuestionTile"
 import ErrorList from "./ErrorList"
 import translateServerErrors from "../services/translateServerErrors"
 
-const ClinicShow = props => {
+const ClinicShow = (props) => {
   const [clinic, setClinic] = useState({
     title: "",
     speaker: "",
     description: "",
-    questions: []
+    questions: [],
   })
   const [errors, setErrors] = useState([])
 
@@ -22,12 +22,12 @@ const ClinicShow = props => {
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
         const error = new Error(errorMessage)
-        throw(error)
+        throw error
       }
       const body = await response.json()
-      debugger
+      // debugger
       setClinic(body.clinic)
-    } catch(err) {
+    } catch (err) {
       console.error(`Error in fetch: ${err.message}`)
     }
   }
@@ -41,43 +41,38 @@ const ClinicShow = props => {
       const response = await fetch(`/api/v1/clinics/${clinicId}/questions`, {
         method: "POST",
         headers: new Headers({
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         }),
-        body: JSON.stringify(newQuestionData)
+        body: JSON.stringify(newQuestionData),
       })
       if (!response.ok) {
-          if(response.status === 422) {
-            const body = await response.json()
-            const newErrors = translateServerErrors(body.errors)
-            return setErrors(newErrors)
-          } else {
-            const errorMessage = `${response.status} (${response.statusText})`
-            const error = new Error(errorMessage)
-            throw(error)
-          }
-        } else {
+        if (response.status === 422) {
           const body = await response.json()
-          const updatedQuestions = clinic.questions.concat(body.question)
-          setClinic({...clinic, questions: updatedQuestions})
+          const newErrors = translateServerErrors(body.errors)
+          return setErrors(newErrors)
+        } else {
+          const errorMessage = `${response.status} (${response.statusText})`
+          const error = new Error(errorMessage)
+          throw error
         }
-    } catch(error) {
+      } else {
+        const body = await response.json()
+        const updatedQuestions = clinic.questions.concat(body.question)
+        setClinic({ ...clinic, questions: updatedQuestions })
+      }
+    } catch (error) {
       console.error(`Error in fetch: ${error.message}`)
     }
   }
 
   let questionTiles
   if (clinic.questions) {
-    questionTiles = clinic.questions.map(questionObject => {
-      return(
-        <QuestionTile
-          key={questionObject.id}
-          {...questionObject}
-        />
-      )
+    questionTiles = clinic.questions.map((questionObject) => {
+      return <QuestionTile key={questionObject.id} {...questionObject} />
     })
   }
 
-  return(
+  return (
     <div>
       <div className="callout">
         <h1>{clinic.title}</h1>
@@ -87,9 +82,7 @@ const ClinicShow = props => {
 
       <div>
         <ErrorList errors={errors} />
-        <NewQuestionForm
-          postQuestion={postQuestion}
-        />
+        <NewQuestionForm postQuestion={postQuestion} />
       </div>
       <h4>Clinic Questions:</h4>
       {questionTiles}
