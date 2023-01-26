@@ -3,6 +3,8 @@ import express from "express"
 import { Clinic } from "../../../models/index.js"
 import clinicQuestionsRouter from "./clinicQuestionsRouter.js"
 
+import ClinicSerializer from "../../../serializers/ClinicSerializer.js"
+
 const clinicsRouter = new express.Router()
 
 // clinicsRouter.get("/", async (req, res) => {
@@ -19,16 +21,18 @@ clinicsRouter.get("/:id", async (req, res) => {
 
   try {
     const clinic = await Clinic.query().findById(id)
-    console.log(clinic)
 
-    //  your code for adding questions 
+    const serializedClinic = await ClinicSerializer.getDetails(clinic)
 
-    return res.status(200).json({ clinic })
+    // clinic.questions = await clinic.$relatedQuery("questions")
+
+    return res.status(200).json({ clinic: serializedClinic })
   } catch(err) {
     return res.status(500).json({ errors: err })
   }
 })
 
-// clinicsRouter.use("/:clinicId/questions", clinicQuestionsRouter)
+
+clinicsRouter.use("/:clinicId/questions", clinicQuestionsRouter)
 
 export default clinicsRouter

@@ -25,6 +25,7 @@ Entity Criteria
 * Must have an asker
 * Must have a body
 * Belongs to a single clinic
+* Note: for simplicity, questions will not belong to a student 
 
 #### Students
 

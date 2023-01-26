@@ -21,7 +21,7 @@ const NewQuestionForm = ({ postQuestion }) => {
 
   const clearForm = () => {
     setNewQuestion({
-      name: "",
+      asker: "",
       body: ""
     })
   }
