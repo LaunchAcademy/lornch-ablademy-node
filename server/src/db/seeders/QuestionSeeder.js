@@ -30,6 +30,10 @@ class QuestionSeeder {
         await Question.query().insert(singleQuestionData)
       }
     }
+
+    const numQuestions = await Question.query().count()
+    console.log(numQuestions);
+    console.log(`${numQuestions[0].count} Questions added to the database`);
   }
 }
 

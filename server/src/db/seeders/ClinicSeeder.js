@@ -27,6 +27,10 @@ class ClinicSeeder {
         await Clinic.query().insert(singleClinicData)
       }
     }
+
+    const numClinics = await Clinic.query().count()
+    console.log(numClinics);
+    console.log(`${numClinics[0].count} Clinics added to the database`);
   }
 }
 

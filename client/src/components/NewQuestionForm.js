@@ -52,6 +52,7 @@ const NewQuestionForm = ({ postQuestion }) => {
 
         <div className="button-group">
           <input className="button" type="submit" value="Ask Away" />
+          <button type="button" onClick={clearForm} className="button">Clear</button>
         </div>
       </form>
     </div>

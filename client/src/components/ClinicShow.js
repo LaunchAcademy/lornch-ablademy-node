@@ -64,17 +64,14 @@ const ClinicShow = props => {
     }
   }
 
-  let questionTiles
-  if (clinic.questions) {
-    questionTiles = clinic.questions.map(questionObject => {
-      return(
-        <QuestionTile
-          key={questionObject.id}
-          {...questionObject}
-        />
-      )
-    })
-  }
+  const questionTiles = clinic.questions.map(questionObject => {
+    return(
+      <QuestionTile
+        key={questionObject.id}
+        {...questionObject}
+      />
+    )
+  })
 
   return(
     <div>
