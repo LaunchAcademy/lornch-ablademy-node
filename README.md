@@ -62,5 +62,6 @@ _For simplicity, there is no index page in React for this app, however, there is
 - **Ensure** that the API endpoint returns the data we expect
 
 - Display Questions for a given Clinic on the page
+
 - Create a nested router to persist a Question for a Clinic
 - **Ensure** that adding a new Question for a Clinic will appear on the page
